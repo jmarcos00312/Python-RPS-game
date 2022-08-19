@@ -1,77 +1,13 @@
 import random
 from turtle import pos
+# importing the words from another file as a module
+import words
+# importing the stages from another file as a module
+import hangman_art
 
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
-
-
-word_list = [
-'abruptly', 
-'absurd', 
-'abyss', 
-'affix', 
-'askew', 
-'avenue', 
-'awkward', 
-'axiom', 
-'azure']
 
 # choosing a random word
-choosenWord = random.choice(word_list)
+choosenWord = random.choice(words.word_list)
 # initializing players lives
 lives = 6
 # empty string to display to user
@@ -119,4 +55,4 @@ while not end_of_game:
     
     
 # showing how many lives the user still have
-    print(stages[lives])
+    print(hangman_art.stages[lives])
