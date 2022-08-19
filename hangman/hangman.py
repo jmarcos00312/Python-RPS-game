@@ -1,9 +1,10 @@
 import random
-from turtle import pos
+from turtle import clear, pos
 # importing the words from another file as a module
 import words
 # importing the stages from another file as a module
 import hangman_art
+
 
 
 # choosing a random word
@@ -15,15 +16,24 @@ display = []
 # descision if the game is over
 end_of_game = False
 # switching each letter of the choosen word to blank and adding it to display list
+print(hangman_art.logo)
+    
+    # asking the user for a letter to guess
+
 for _ in choosenWord:
     display += "_"
     
+print(display)
     # while the end of game is False
 while not end_of_game:
-    print(choosenWord)
-    print(display)
-    # asking the user for a letter to guess
     userguess = input("Enter a letter: ")
+    print(display)
+    
+    if userguess in display:
+        print(f"You already guessed: {userguess}")
+
+    
+    print(choosenWord)
     # for each index of the length of the choosen word
     for position in range(len(choosenWord)):
         # getting the letter of the current index
@@ -32,11 +42,15 @@ while not end_of_game:
         if userguess == letter:
             # instead of showing a blank, show the letter instead
             display[position] = letter
+            print(display)
+
 # ==============================
 # out of the for loop
 # ==============================
     # but if the userGuess is not in the choosenWord
     if userguess not in choosenWord:
+        print(f"You guessed {userguess} and its not in the choosenword")
+        print(display)
         # take away lives from the user
         lives -= 1
         # if the users lives is equal to 0
